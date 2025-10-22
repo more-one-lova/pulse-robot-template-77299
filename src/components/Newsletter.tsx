@@ -1,54 +1,57 @@
 import React, { useState } from "react";
-import { toast } from "@/components/ui/use-toast";
+import { Mail } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
 const Newsletter = () => {
   const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) {
-      toast({
-        title: "Please enter your email address",
-        variant: "destructive"
-      });
-      return;
-    }
-    setIsSubmitting(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      toast({
-        title: "Thank you for subscribing!",
-        description: "You'll receive updates about Atlas soon."
-      });
-      setEmail("");
-      setIsSubmitting(false);
-    }, 1000);
+    toast({
+      title: "환영합니다!",
+      description: "소식을 받으실 이메일이 등록되었습니다.",
+    });
+    setEmail("");
   };
-  return <section id="newsletter" className="bg-white py-0">
-      <div className="section-container opacity-0 animate-on-scroll">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="pulse-chip">
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">05</span>
-              <span>Newsletter</span>
-            </div>
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-primary via-secondary to-accent text-white" id="newsletter">
+      <div className="section-container">
+        <div className="max-w-4xl mx-auto text-center animate-on-scroll opacity-0">
+          <div className="inline-block p-4 bg-white/20 backdrop-blur-sm rounded-3xl mb-6">
+            <Mail className="w-12 h-12" />
           </div>
-          
-          <h2 className="text-5xl font-display font-bold mb-4 text-left">Subscribe to the newsletter</h2>
-          <p className="text-xl text-gray-700 mb-10 text-left">
-            Be first to hear about breakthroughs, partnerships, and deployment opportunities
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            마음이와 함께 시작하세요
+          </h2>
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            새로운 콘텐츠와 명상 팁, 특별한 이벤트 소식을 가장 먼저 받아보세요.
+            <br />지금 바로 마음이 커뮤니티에 참여하세요.
           </p>
-          
-          <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-            <div className="relative flex-grow">
-              <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email address" className="w-full px-6 py-4 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pulse-500 text-gray-700" required />
-            </div>
-            <button type="submit" disabled={isSubmitting} className="bg-pulse-500 hover:bg-pulse-600 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 md:ml-4">
-              {isSubmitting ? "Submitting..." : "Submit"}
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+            <input
+              type="email"
+              placeholder="이메일 주소를 입력하세요"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 px-6 py-4 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:bg-white/30"
+              required
+            />
+            <button
+              type="submit"
+              className="px-8 py-4 bg-white text-primary font-medium rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 whitespace-nowrap"
+            >
+              지금 시작하기
             </button>
           </form>
+          <p className="text-sm text-white/70 mt-6">
+            언제든지 구독을 취소하실 수 있습니다. 개인정보는 안전하게 보호됩니다.
+          </p>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Newsletter;
