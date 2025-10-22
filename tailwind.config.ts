@@ -137,15 +137,14 @@ export default {
 				'float': 'float 6s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'hero-gradient': 'linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)',
-				'hero-gradient-2': 'linear-gradient(90deg, hsla(39, 100%, 77%, 1) 0%, hsla(22, 90%, 57%, 1) 100%)',
-				'pulse-gradient': 'linear-gradient(180deg, rgba(249,115,22,0.8) 0%, rgba(249,115,22,0) 100%)',
+				'hero-gradient': 'linear-gradient(135deg, hsl(340, 75%, 85%) 0%, hsl(280, 50%, 88%) 50%, hsl(200, 60%, 90%) 100%)',
+				'warm-gradient': 'linear-gradient(180deg, hsl(30, 60%, 95%) 0%, hsl(340, 70%, 95%) 100%)',
+				'soft-gradient': 'linear-gradient(135deg, hsl(340, 60%, 92%) 0%, hsl(280, 40%, 92%) 100%)',
 			},
 			fontFamily: {
-				'sans': ['Inter', 'sans-serif'],
-				'display': ['Brockmann', 'SF Pro Display', 'Inter', 'sans-serif'],
-				'brockmann': ['Brockmann', 'serif'],
-				'playfair': ['"Playfair Display"', 'serif'],
+				'sans': ['Noto Sans KR', 'Inter', 'sans-serif'],
+				'display': ['Noto Serif KR', 'Playfair Display', 'serif'],
+				'body': ['Noto Sans KR', 'Inter', 'sans-serif'],
 			},
 			boxShadow: {
 				'elegant': '0 4px 20px rgba(0, 0, 0, 0.08)',
